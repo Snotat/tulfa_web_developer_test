@@ -119,3 +119,30 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.addEventListener("click", () => alert("Mobile menu coming soon 🚀"));
     }
 });
+
+// Inside your DOMContentLoaded block in script.js
+
+const iframe = document.getElementById('testIframe');
+const colorBtn = document.getElementById('changeColorBtn');
+
+if (colorBtn && iframe) {
+    colorBtn.addEventListener('click', () => {
+        // Step 2: Send data to iframe
+        const message = {
+            type: "CONFIG_UPDATE",
+            color: "gold" // You can change this to any color
+        };
+        
+        // Using '*' for origin as per test instruction (explained in README)
+        iframe.contentWindow.postMessage(message, "*");
+    });
+}
+
+// Step 4: Listen for response from iframe
+window.addEventListener("message", (event) => {
+    // Only log if it's our expected status message
+    if (event.data.status === "received") {
+        console.log("Response from Iframe:", event.data);
+        alert("Iframe confirmed color: " + event.data.appliedColor);
+    }
+});

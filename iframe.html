@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { 
+            transition: background-color 0.5s ease; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="status">Iframe Ready</div>
+
+    <script>
+        window.addEventListener("message", (event) => {
+            console.log("Message received in iframe:", event.data);
+
+            if (event.data.type === "CONFIG_UPDATE") {
+                document.body.style.backgroundColor = event.data.color;
+                document.getElementById('status').innerText = "Color updated to " + event.data.color;
+
+                window.parent.postMessage({ 
+                    status: "received", 
+                    appliedColor: event.data.color 
+                }, "*");
+            }
+        });
+    </script>
+</body>
+</html>
