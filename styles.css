@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@500&display=swap');
 * {
   margin: 0;
@@ -174,6 +175,7 @@ width: 19%;
     padding: 100px 20px;
     padding-left: 8%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     background-color: white;
     
@@ -207,8 +209,8 @@ color: black;
 }
 .top-label {
     display: flex;
-    top:-80px;
-    left: -6%;
+    top: 4%;
+      left: 3%;
     align-items: center;
     margin-bottom: 2rem;
     position: absolute;
@@ -299,7 +301,9 @@ color: black;
     padding-bottom: 20px;
     max-width: 90%;
 }
-
+.iframe-test-section {
+  width: 100%
+}
 .accordion-item.active {
     background-color: #FFF9F3; 
     border-bottom: 2px solid black;
@@ -357,6 +361,7 @@ color: black;
     display: flex; 
     align-items: center;
     justify-content: center;
+    padding-left: 8%;
 }
 
 .image-wrapper {
@@ -588,8 +593,8 @@ display:none;
 
 .services-visual-grid {
     display: flex;
-    flex-direction: column;
-    gap: 100px;
+    flex-direction: row;
+      gap: 60px;
 }
 
 .visual-card {
@@ -639,9 +644,7 @@ display:none;
         grid-template-columns: 1.5fr 1fr;
         gap: 100px;
     }
-    .right-column{
-        display: none;
-    }
+
 
     .footer-heading {
         font-size: 54px;
@@ -679,52 +682,15 @@ display:none;
         gap: 10px;
     }
 
-    .footer-nav {
-        gap: 30px;
-    }
-     
 
-    .services-visual-grid {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: 0;
-    }
-
-    .visual-card {
-        width: 45%;
-    }
-
-    .outline-number {
-        font-size: 180px;
-        bottom: -50px;
-        left: -40px;
-    }
-
-    .service-title {
-        font-size: 28px;
-        text-align: right;
-    }
-
-    .visual-card:last-child .service-title {
-        text-align: left;
-    }
+.footer-nav {
+  gap: 30px;
 }
-
-@media (min-width: 1024px){
+    .visual-card {
+      width: 45%;
     
-
-    .content-wrapper {
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-    }
-
   
-
-    .right-column {
-        display: flex; 
-    }
-
+}
 }
 
 @media (max-width: 1024px) {
@@ -732,10 +698,16 @@ display:none;
     animation: scroll-brands 20s linear infinite;
   }
 
+
   .brand-item {
     width: 35%;
     max-width: 200px;
   }
+.services-visual-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
   
 }
 
@@ -838,7 +810,12 @@ padding: 30px 0;
         position: relative;
         top: 0;left: 0;
     }
-           .services-section {
+.right-column {
+  height: 100vh;
+  background: #000;
+  display: none;
+}
+.services-section {
         padding: 40px 40px;
     }
 }
